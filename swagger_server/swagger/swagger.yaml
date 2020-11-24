@@ -291,7 +291,7 @@ components:
           type: integer
           format: int32
           example: 399
-        shipAdress:
+        shipAddress:
           type: string
           example: Calle Manzano 5 28010 Madrid
         client:
