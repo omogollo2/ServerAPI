@@ -254,7 +254,7 @@ components:
         name:
           type: string
           example: Antonio Garcia Garcia
-        addres:
+        address:
           type: string
           example: Calle Peral 15 28015 Madrid
         birthDate:
@@ -263,7 +263,7 @@ components:
           example: 1945-07-21
       example:
         name: Antonio Garcia Garcia
-        addres: Calle Peral 15 28015 Madrid
+        address: Calle Peral 15 28015 Madrid
         birthDate: 1945-07-21T00:00:00.000+0000
     Order:
       required:
