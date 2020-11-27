@@ -254,7 +254,7 @@ components:
         name:
           type: string
           example: Antonio Garcia Garcia
-        addres:
+        address:
           type: string
           example: Calle Peral 15 28015 Madrid
         birthDate:
@@ -262,8 +262,8 @@ components:
           format: date
           example: 1945-07-21
       example:
+        address: Calle Peral 15 28015 Madrid
         name: Antonio Garcia Garcia
-        addres: Calle Peral 15 28015 Madrid
         birthDate: 1945-07-21T00:00:00.000+0000
     Order:
       required:
@@ -291,17 +291,16 @@ components:
           type: integer
           format: int32
           example: 399
-        shipAdress:
+        shipAddress:
           type: string
           example: Calle Manzano 5 28010 Madrid
         client:
           $ref: '#/components/schemas/Client'
       example:
-        shipAdress: Calle Manzano 5 28010 Madrid
         totalPrice: 399
         client:
+          address: Calle Peral 15 28015 Madrid
           name: Antonio Garcia Garcia
-          addres: Calle Peral 15 28015 Madrid
           birthDate: 1945-07-21T00:00:00.000+0000
         shipDate: 2020-11-27T00:00:00.000+0000
         orderDate: 2020-11-20T00:00:00.000+0000
@@ -312,4 +311,5 @@ components:
         - price: 149
           name: baston
           id: smartstick_stick01
+        shipAddress: Calle Manzano 5 28010 Madrid
 
