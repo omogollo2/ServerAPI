@@ -25,7 +25,7 @@ def put_stock(product_id, body=None):  # noqa: E501
 def search_stock(search_string=None, limit=None):  # noqa: E501
     """devuelve el stock de la tienda
 
-    By passing in the appropriate options, you can search for available inventory in the system  # noqa: E501
+    Devuelve el stock de cada producto de la tienda o de uno en especifico  # noqa: E501
 
     :param search_string: parametro que permite obtener el stock de un determinado producto
     :type search_string: str
