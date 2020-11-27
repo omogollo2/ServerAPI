@@ -14,18 +14,18 @@ class Product(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, id: str=None, name: str=None, price: int=None):  # noqa: E501
+    def __init__(self, id: int=None, name: str=None, price: int=None):  # noqa: E501
         """Product - a model defined in Swagger
 
         :param id: The id of this Product.  # noqa: E501
-        :type id: str
+        :type id: int
         :param name: The name of this Product.  # noqa: E501
         :type name: str
         :param price: The price of this Product.  # noqa: E501
         :type price: int
         """
         self.swagger_types = {
-            'id': str,
+            'id': int,
             'name': str,
             'price': int
         }
@@ -51,22 +51,22 @@ class Product(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def id(self) -> str:
+    def id(self) -> int:
         """Gets the id of this Product.
 
 
         :return: The id of this Product.
-        :rtype: str
+        :rtype: int
         """
         return self._id
 
     @id.setter
-    def id(self, id: str):
+    def id(self, id: int):
         """Sets the id of this Product.
 
 
         :param id: The id of this Product.
-        :type id: str
+        :type id: int
         """
         if id is None:
             raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501

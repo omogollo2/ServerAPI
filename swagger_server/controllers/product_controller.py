@@ -6,7 +6,8 @@ from swagger_server.models.product import Product  # noqa: E501
 from swagger_server import util
 
 client = pymongo.MongoClient("mongodb+srv://test:test@cluster0.m8mga.mongodb.net/test?retryWrites=true&w=majority")
-db=client.get_database('ist')
+db = client.get_database('ist')
+
 
 def delete_product(product_id):  # noqa: E501
     """borrar un producto
@@ -18,6 +19,7 @@ def delete_product(product_id):  # noqa: E501
 
     :rtype: None
     """
+
     collection = db.product
     collection.delete_one({'id': product_id})
 
@@ -37,6 +39,7 @@ def get_product(product_id):  # noqa: E501
 
     collection = db.product
     product = collection.find_one({'id': product_id})
+
     return Product(product['id'], product['name'], product['price'])
 
 
@@ -52,6 +55,7 @@ def put_product(product_id, body):  # noqa: E501
 
     :rtype: None
     """
+
     if connexion.request.is_json:
         body = Product.from_dict(connexion.request.get_json())  # noqa: E501
         collection = db.product

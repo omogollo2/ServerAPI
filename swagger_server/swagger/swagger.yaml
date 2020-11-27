@@ -87,8 +87,7 @@ paths:
       - stock
       summary: devuelve el stock de la tienda
       description: |
-        By passing in the appropriate options, you can search for
-        available inventory in the system
+        Devuelve el stock de cada producto de la tienda o de uno en especifico
       operationId: search_stock
       parameters:
       - name: searchString
@@ -144,9 +143,7 @@ paths:
         content:
           application/json:
             schema:
-              type: array
-              items:
-                $ref: '#/components/schemas/StockProduct'
+              $ref: '#/components/schemas/StockProduct'
       responses:
         "200":
           description: stock updated
@@ -231,8 +228,9 @@ components:
       type: object
       properties:
         id:
-          type: string
-          example: smartstick_stick01
+          type: integer
+          format: int32
+          example: 1
         name:
           type: string
           example: baston
@@ -243,7 +241,7 @@ components:
       example:
         price: 149
         name: baston
-        id: smartstick_stick01
+        id: 1
     StockProduct:
       required:
       - product
@@ -260,7 +258,7 @@ components:
         product:
           price: 149
           name: baston
-          id: smartstick_stick01
+          id: 1
         stock: 76
     Client:
       required:
@@ -331,9 +329,9 @@ components:
         items:
         - price: 149
           name: baston
-          id: smartstick_stick01
+          id: 1
         - price: 149
           name: baston
-          id: smartstick_stick01
+          id: 1
         shipAddress: Calle Manzano 5 28010 Madrid
 
