@@ -55,10 +55,12 @@ def post_order(body):  # noqa: E501
             'id': body.id,
             'orderDate': str(body.order_date),
             'shipDate': str(body.ship_date),
-            'items': list(),
+            'item_id': body.items[0].id,
+            'item_name': body.items[0].name,
+            'item_price': body.items[0].price,
             'totalPrice': body.total_price,
             'shipAddress': body.ship_address,
-            'client': str(body.client)
+            'client': body.client.name
         }
         collection.insert_one(order_data)
     return 'OK'
