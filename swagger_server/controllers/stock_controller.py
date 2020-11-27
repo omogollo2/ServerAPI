@@ -26,7 +26,6 @@ def put_stock(product_id, body=None):  # noqa: E501
     collection = db.stock
     myquery = {"product": product_id }
     new_values = {"$set": {
-        'id':body[0].id,
         'product': body[0].product,
         'stock': body[0].stock
     }}
