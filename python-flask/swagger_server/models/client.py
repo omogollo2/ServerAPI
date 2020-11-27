@@ -14,29 +14,29 @@ class Client(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, name: str=None, addres: str=None, birth_date: date=None):  # noqa: E501
+    def __init__(self, name: str=None, address: str=None, birth_date: date=None):  # noqa: E501
         """Client - a model defined in Swagger
 
         :param name: The name of this Client.  # noqa: E501
         :type name: str
-        :param addres: The addres of this Client.  # noqa: E501
-        :type addres: str
+        :param address: The address of this Client.  # noqa: E501
+        :type address: str
         :param birth_date: The birth_date of this Client.  # noqa: E501
         :type birth_date: date
         """
         self.swagger_types = {
             'name': str,
-            'addres': str,
+            'address': str,
             'birth_date': date
         }
 
         self.attribute_map = {
             'name': 'name',
-            'addres': 'addres',
+            'address': 'address',
             'birth_date': 'birthDate'
         }
         self._name = name
-        self._addres = addres
+        self._address = address
         self._birth_date = birth_date
 
     @classmethod
@@ -74,25 +74,27 @@ class Client(Model):
         self._name = name
 
     @property
-    def addres(self) -> str:
-        """Gets the addres of this Client.
+    def address(self) -> str:
+        """Gets the address of this Client.
 
 
-        :return: The addres of this Client.
+        :return: The address of this Client.
         :rtype: str
         """
-        return self._addres
+        return self._address
 
-    @addres.setter
-    def addres(self, addres: str):
-        """Sets the addres of this Client.
+    @address.setter
+    def address(self, address: str):
+        """Sets the address of this Client.
 
 
-        :param addres: The addres of this Client.
-        :type addres: str
+        :param address: The address of this Client.
+        :type address: str
         """
+        if address is None:
+            raise ValueError("Invalid value for `address`, must not be `None`")  # noqa: E501
 
-        self._addres = addres
+        self._address = address
 
     @property
     def birth_date(self) -> date:
