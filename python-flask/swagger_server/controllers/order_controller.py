@@ -1,9 +1,13 @@
 import connexion
+import pymongo
 import six
 
 from swagger_server.models.order import Order  # noqa: E501
 from swagger_server import util
 
+
+client = pymongo.MongoClient("mongodb+srv://test:test@cluster0.m8mga.mongodb.net/test?retryWrites=true&w=majority")
+db=client.get_database('ist')
 
 def delete_order(order_id):  # noqa: E501
     """borra un pedido
@@ -43,4 +47,14 @@ def post_order(body=None):  # noqa: E501
     """
     if connexion.request.is_json:
         body = Order.from_dict(connexion.request.get_json())  # noqa: E501
+        collection = db.order
+        order_data = {
+            'orderDate': body.id,
+            'shipDate': body.ship_date,
+            'items': body.items,
+            'totalPrice': body.total_price,
+            'shipAddress': body.ship_adress,
+            'client': body.client
+        }
+        collection.insert_one(order_data)
     return 'do some magic!'
