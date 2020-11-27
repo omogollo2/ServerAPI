@@ -142,6 +142,27 @@ paths:
         "404":
           description: producto no encontrado'
       x-openapi-router-controller: swagger_server.controllers.stock_controller
+  /order:
+    post:
+      tags:
+      - order
+      summary: crea un nuevo pedido
+      operationId: post_order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Order'
+      responses:
+        "200":
+          description: pedido creado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Order'
+        "400":
+          description: datos de pedido incorrectos
+      x-openapi-router-controller: swagger_server.controllers.order_controller
   /order/{orderId}:
     get:
       tags:
@@ -167,36 +188,6 @@ paths:
                 $ref: '#/components/schemas/Order'
         "404":
           description: pedido no encontrado en el sistema
-      x-openapi-router-controller: swagger_server.controllers.order_controller
-    post:
-      tags:
-      - order
-      summary: crea un nuevo pedido
-      operationId: post_order
-      parameters:
-      - name: orderId
-        in: path
-        description: id del pedido recien creado
-        required: true
-        style: simple
-        explode: false
-        schema:
-          type: integer
-          format: int32
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Order'
-      responses:
-        "200":
-          description: pedido creado
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Order'
-        "400":
-          description: datos de pedido incorrectos
       x-openapi-router-controller: swagger_server.controllers.order_controller
     delete:
       tags:

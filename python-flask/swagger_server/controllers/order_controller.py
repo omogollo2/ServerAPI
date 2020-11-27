@@ -31,13 +31,11 @@ def get_order(order_id):  # noqa: E501
     return 'do some magic!'
 
 
-def post_order(order_id, body=None):  # noqa: E501
+def post_order(body=None):  # noqa: E501
     """crea un nuevo pedido
 
      # noqa: E501
 
-    :param order_id: id del pedido recien creado
-    :type order_id: int
     :param body: 
     :type body: dict | bytes
 

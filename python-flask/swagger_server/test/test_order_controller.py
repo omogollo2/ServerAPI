@@ -41,7 +41,7 @@ class TestOrderController(BaseTestCase):
         """
         body = Order()
         response = self.client.open(
-            '/omogollo2/ServerAPI/1.0.0/order/{orderId}'.format(order_id=56),
+            '/omogollo2/ServerAPI/1.0.0/order',
             method='POST',
             data=json.dumps(body),
             content_type='application/json')
