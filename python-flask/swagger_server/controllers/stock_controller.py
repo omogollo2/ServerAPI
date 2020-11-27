@@ -5,11 +5,13 @@ from swagger_server.models.stock_product import StockProduct  # noqa: E501
 from swagger_server import util
 
 
-def put_stock(body=None):  # noqa: E501
+def put_stock(product_id, body=None):  # noqa: E501
     """actualiza el stock de un producto
 
     actualiza el stock de un producto con determinado identificador # noqa: E501
 
+    :param product_id: id del producto a actualizar
+    :type product_id: int
     :param body: 
     :type body: list | bytes
 

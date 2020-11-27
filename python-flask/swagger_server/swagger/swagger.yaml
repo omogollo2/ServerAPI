@@ -123,12 +123,23 @@ paths:
         "400":
           description: error en la información requerida
       x-openapi-router-controller: swagger_server.controllers.stock_controller
+  /stock/{productId}:
     put:
       tags:
       - stock
       summary: actualiza el stock de un producto
       description: actualiza el stock de un producto con determinado identificador
       operationId: put_stock
+      parameters:
+      - name: productId
+        in: path
+        description: id del producto a actualizar
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int32
       requestBody:
         content:
           application/json:
