@@ -13,12 +13,12 @@ def put_stock(product_id, body=None):  # noqa: E501
     :param product_id: id del producto a actualizar
     :type product_id: int
     :param body: 
-    :type body: list | bytes
+    :type body: dict | bytes
 
     :rtype: None
     """
     if connexion.request.is_json:
-        body = [StockProduct.from_dict(d) for d in connexion.request.get_json()]  # noqa: E501
+        body = StockProduct.from_dict(connexion.request.get_json())  # noqa: E501
     return 'do some magic!'
 
 

@@ -17,7 +17,7 @@ class TestStockController(BaseTestCase):
 
         actualiza el stock de un producto
         """
-        body = [StockProduct()]
+        body = StockProduct()
         response = self.client.open(
             '/omogollo2/ServerAPI/1.0.0/stock/{productId}'.format(product_id=56),
             method='PUT',
