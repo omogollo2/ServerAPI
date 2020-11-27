@@ -275,6 +275,7 @@ components:
     Order:
       required:
       - client
+      - id
       - items
       - orderDate
       - shipAddress
@@ -282,6 +283,10 @@ components:
       - totalPrice
       type: object
       properties:
+        id:
+          type: integer
+          format: int64
+          example: 12345
         orderDate:
           type: string
           format: date
@@ -309,6 +314,7 @@ components:
           address: Calle Peral 15 28015 Madrid
           name: Antonio Garcia Garcia
           birthDate: 1945-07-21T00:00:00.000+0000
+        id: 12345
         shipDate: 2020-11-27T00:00:00.000+0000
         orderDate: 2020-11-20T00:00:00.000+0000
         items:
