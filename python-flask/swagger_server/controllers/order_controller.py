@@ -1,9 +1,7 @@
 import connexion
 import pymongo
-import six
 
 from swagger_server.models.order import Order  # noqa: E501
-from swagger_server import util
 
 
 client = pymongo.MongoClient("mongodb+srv://test:test@cluster0.m8mga.mongodb.net/test?retryWrites=true&w=majority")
@@ -19,7 +17,9 @@ def delete_order(order_id):  # noqa: E501
 
     :rtype: None
     """
-    return 'do some magic!'
+    collection = db.order
+    collection.delete_one({'id': order_id})
+    return 'OK'
 
 
 def get_order(order_id):  # noqa: E501
@@ -32,7 +32,10 @@ def get_order(order_id):  # noqa: E501
 
     :rtype: Order
     """
-    return 'do some magic!'
+
+    collection = db.order
+    order = collection.find_one({'id': order_id})
+    return Order(order['id'], order['orderDate'], order['shipDate'], order['items'], order['shipAddress'], order['client'])
 
 
 def post_order(body):  # noqa: E501
