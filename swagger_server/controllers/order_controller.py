@@ -57,7 +57,7 @@ def post_order(body):  # noqa: E501
             'shipDate': body.ship_date,
             'items': body.items,
             'totalPrice': body.total_price,
-            'shipAddress': body.ship_adress,
+            'shipAddress': body.ship_address,
             'client': body.client
         }
         collection.insert_one(order_data)
