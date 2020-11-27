@@ -53,8 +53,8 @@ def post_order(body):  # noqa: E501
         collection = db.order
         order_data = {
             'id': body.id,
-            'orderDate': body.order_date,
-            'shipDate': body.ship_date,
+            'orderDate': str(body.order_date),
+            'shipDate': str(body.ship_date),
             'items': body.items,
             'totalPrice': body.total_price,
             'shipAddress': body.ship_address,
