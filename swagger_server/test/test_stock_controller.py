@@ -19,7 +19,7 @@ class TestStockController(BaseTestCase):
         """
         body = [StockProduct()]
         response = self.client.open(
-            '/omogollo2/ServerAPI/1.0.0/stock',
+            '/omogollo2/ServerAPI/1.0.0/stock/{productId}'.format(product_id=56),
             method='PUT',
             data=json.dumps(body),
             content_type='application/json')
