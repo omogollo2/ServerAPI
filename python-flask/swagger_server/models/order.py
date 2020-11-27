@@ -16,9 +16,11 @@ class Order(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, order_date: date=None, ship_date: date=None, items: List[Product]=None, total_price: int=None, ship_address: str=None, client: Client=None):  # noqa: E501
+    def __init__(self, id: int=None, order_date: date=None, ship_date: date=None, items: List[Product]=None, total_price: int=None, ship_address: str=None, client: Client=None):  # noqa: E501
         """Order - a model defined in Swagger
 
+        :param id: The id of this Order.  # noqa: E501
+        :type id: int
         :param order_date: The order_date of this Order.  # noqa: E501
         :type order_date: date
         :param ship_date: The ship_date of this Order.  # noqa: E501
@@ -33,6 +35,7 @@ class Order(Model):
         :type client: Client
         """
         self.swagger_types = {
+            'id': int,
             'order_date': date,
             'ship_date': date,
             'items': List[Product],
@@ -42,6 +45,7 @@ class Order(Model):
         }
 
         self.attribute_map = {
+            'id': 'id',
             'order_date': 'orderDate',
             'ship_date': 'shipDate',
             'items': 'items',
@@ -49,6 +53,7 @@ class Order(Model):
             'ship_address': 'shipAddress',
             'client': 'client'
         }
+        self._id = id
         self._order_date = order_date
         self._ship_date = ship_date
         self._items = items
@@ -66,6 +71,29 @@ class Order(Model):
         :rtype: Order
         """
         return util.deserialize_model(dikt, cls)
+
+    @property
+    def id(self) -> int:
+        """Gets the id of this Order.
+
+
+        :return: The id of this Order.
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id: int):
+        """Sets the id of this Order.
+
+
+        :param id: The id of this Order.
+        :type id: int
+        """
+        if id is None:
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+
+        self._id = id
 
     @property
     def order_date(self) -> date:
