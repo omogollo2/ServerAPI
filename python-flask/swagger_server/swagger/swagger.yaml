@@ -231,8 +231,9 @@ components:
       type: object
       properties:
         id:
-          type: string
-          example: smartstick_stick01
+          type: integer
+          format: int32
+          example: 1
         name:
           type: string
           example: baston
@@ -243,7 +244,7 @@ components:
       example:
         price: 149
         name: baston
-        id: smartstick_stick01
+        id: 1
     StockProduct:
       required:
       - product
@@ -260,7 +261,7 @@ components:
         product:
           price: 149
           name: baston
-          id: smartstick_stick01
+          id: 1
         stock: 76
     Client:
       required:
@@ -331,9 +332,9 @@ components:
         items:
         - price: 149
           name: baston
-          id: smartstick_stick01
+          id: 1
         - price: 149
           name: baston
-          id: smartstick_stick01
+          id: 1
         shipAddress: Calle Manzano 5 28010 Madrid
 
