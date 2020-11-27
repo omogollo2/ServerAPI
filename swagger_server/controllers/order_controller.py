@@ -55,7 +55,7 @@ def post_order(body):  # noqa: E501
             'id': body.id,
             'orderDate': str(body.order_date),
             'shipDate': str(body.ship_date),
-            'items': body.items,
+            'items': list(),
             'totalPrice': body.total_price,
             'shipAddress': body.ship_address,
             'client': body.client
