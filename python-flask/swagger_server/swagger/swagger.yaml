@@ -12,6 +12,8 @@ servers:
 paths:
   /product/{productId}:
     get:
+      tags:
+      - product
       summary: devuelve la información de un producto
       operationId: get_product
       parameters:
@@ -33,8 +35,10 @@ paths:
                 $ref: '#/components/schemas/Product'
         "404":
           description: no se ha encontrado el producto
-      x-openapi-router-controller: swagger_server.controllers.default_controller
+      x-openapi-router-controller: swagger_server.controllers.product_controller
     put:
+      tags:
+      - product
       summary: actuliza la información de un producto
       operationId: put_product
       parameters:
@@ -57,8 +61,10 @@ paths:
           description: producto actualizado con exito
         "404":
           description: no existe el producto que se desea actualizar
-      x-openapi-router-controller: swagger_server.controllers.default_controller
+      x-openapi-router-controller: swagger_server.controllers.product_controller
     delete:
+      tags:
+      - product
       summary: borrar un producto
       operationId: delete_product
       parameters:
@@ -74,9 +80,11 @@ paths:
       responses:
         "200":
           description: producto borrado con exito
-      x-openapi-router-controller: swagger_server.controllers.default_controller
+      x-openapi-router-controller: swagger_server.controllers.product_controller
   /stock:
     get:
+      tags:
+      - stock
       summary: devuelve el stock de la tienda
       description: |
         By passing in the appropriate options, you can search for
@@ -114,8 +122,10 @@ paths:
                 x-content-type: application/json
         "400":
           description: error en la información requerida
-      x-openapi-router-controller: swagger_server.controllers.default_controller
+      x-openapi-router-controller: swagger_server.controllers.stock_controller
     put:
+      tags:
+      - stock
       summary: actualiza el stock de un producto
       description: actualiza el stock de un producto con determinado identificador
       operationId: put_stock
@@ -131,9 +141,11 @@ paths:
           description: stock updated
         "404":
           description: producto no encontrado'
-      x-openapi-router-controller: swagger_server.controllers.default_controller
+      x-openapi-router-controller: swagger_server.controllers.stock_controller
   /order/{orderId}:
     get:
+      tags:
+      - order
       summary: Devuelve los datos un pedido
       operationId: get_order
       parameters:
@@ -155,8 +167,10 @@ paths:
                 $ref: '#/components/schemas/Order'
         "404":
           description: pedido no encontrado en el sistema
-      x-openapi-router-controller: swagger_server.controllers.default_controller
+      x-openapi-router-controller: swagger_server.controllers.order_controller
     post:
+      tags:
+      - order
       summary: crea un nuevo pedido
       operationId: post_order
       parameters:
@@ -183,8 +197,10 @@ paths:
                 $ref: '#/components/schemas/Order'
         "400":
           description: datos de pedido incorrectos
-      x-openapi-router-controller: swagger_server.controllers.default_controller
+      x-openapi-router-controller: swagger_server.controllers.order_controller
     delete:
+      tags:
+      - order
       summary: borra un pedido
       operationId: delete_order
       parameters:
@@ -202,7 +218,7 @@ paths:
           description: pedido eliminado con exito
         "404":
           description: pedido no encontrado
-      x-openapi-router-controller: swagger_server.controllers.default_controller
+      x-openapi-router-controller: swagger_server.controllers.order_controller
 components:
   schemas:
     Product:
