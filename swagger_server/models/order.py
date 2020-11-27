@@ -16,9 +16,11 @@ class Order(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, order_date: date=None, ship_date: date=None, items: List[Product]=None, total_price: int=None, ship_adress: str=None, client: Client=None):  # noqa: E501
+    def __init__(self, id: int=None, order_date: date=None, ship_date: date=None, items: List[Product]=None, total_price: int=None, ship_address: str=None, client: Client=None):  # noqa: E501
         """Order - a model defined in Swagger
 
+        :param id: The id of this Order.  # noqa: E501
+        :type id: int
         :param order_date: The order_date of this Order.  # noqa: E501
         :type order_date: date
         :param ship_date: The ship_date of this Order.  # noqa: E501
@@ -27,33 +29,36 @@ class Order(Model):
         :type items: List[Product]
         :param total_price: The total_price of this Order.  # noqa: E501
         :type total_price: int
-        :param ship_adress: The ship_adress of this Order.  # noqa: E501
-        :type ship_adress: str
+        :param ship_address: The ship_address of this Order.  # noqa: E501
+        :type ship_address: str
         :param client: The client of this Order.  # noqa: E501
         :type client: Client
         """
         self.swagger_types = {
+            'id': int,
             'order_date': date,
             'ship_date': date,
             'items': List[Product],
             'total_price': int,
-            'ship_adress': str,
+            'ship_address': str,
             'client': Client
         }
 
         self.attribute_map = {
+            'id': 'id',
             'order_date': 'orderDate',
             'ship_date': 'shipDate',
             'items': 'items',
             'total_price': 'totalPrice',
-            'ship_adress': 'shipAdress',
+            'ship_address': 'shipAddress',
             'client': 'client'
         }
+        self._id = id
         self._order_date = order_date
         self._ship_date = ship_date
         self._items = items
         self._total_price = total_price
-        self._ship_adress = ship_adress
+        self._ship_address = ship_address
         self._client = client
 
     @classmethod
@@ -66,6 +71,29 @@ class Order(Model):
         :rtype: Order
         """
         return util.deserialize_model(dikt, cls)
+
+    @property
+    def id(self) -> int:
+        """Gets the id of this Order.
+
+
+        :return: The id of this Order.
+        :rtype: int
+        """
+        return self._id
+
+    @id.setter
+    def id(self, id: int):
+        """Sets the id of this Order.
+
+
+        :param id: The id of this Order.
+        :type id: int
+        """
+        if id is None:
+            raise ValueError("Invalid value for `id`, must not be `None`")  # noqa: E501
+
+        self._id = id
 
     @property
     def order_date(self) -> date:
@@ -160,25 +188,27 @@ class Order(Model):
         self._total_price = total_price
 
     @property
-    def ship_adress(self) -> str:
-        """Gets the ship_adress of this Order.
+    def ship_address(self) -> str:
+        """Gets the ship_address of this Order.
 
 
-        :return: The ship_adress of this Order.
+        :return: The ship_address of this Order.
         :rtype: str
         """
-        return self._ship_adress
+        return self._ship_address
 
-    @ship_adress.setter
-    def ship_adress(self, ship_adress: str):
-        """Sets the ship_adress of this Order.
+    @ship_address.setter
+    def ship_address(self, ship_address: str):
+        """Sets the ship_address of this Order.
 
 
-        :param ship_adress: The ship_adress of this Order.
-        :type ship_adress: str
+        :param ship_address: The ship_address of this Order.
+        :type ship_address: str
         """
+        if ship_address is None:
+            raise ValueError("Invalid value for `ship_address`, must not be `None`")  # noqa: E501
 
-        self._ship_adress = ship_adress
+        self._ship_address = ship_address
 
     @property
     def client(self) -> Client:
