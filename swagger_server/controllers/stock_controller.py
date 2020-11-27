@@ -58,6 +58,6 @@ def search_stock(search_string=None, limit=None):  # noqa: E501
     else:
         # Obtener stock de un producto
         s = collection.find_one({'product': {'name': search_string}})
-        stock.append(s['product'], s['stock'])
+        stock.append(StockProduct(s['product'], s['stock']))
 
     return stock
