@@ -49,7 +49,8 @@ def post_order(body=None):  # noqa: E501
         body = Order.from_dict(connexion.request.get_json())  # noqa: E501
         collection = db.order
         order_data = {
-            'orderDate': body.id,
+            'id': body.id,
+            'orderDate': body.order_date,
             'shipDate': body.ship_date,
             'items': body.items,
             'totalPrice': body.total_price,
