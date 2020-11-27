@@ -26,12 +26,12 @@ def put_stock(product_id, body=None):  # noqa: E501
     collection = db.stock
     myquery = {"product": product_id }
     new_values = {"$set": {
-        'product': body[0].product['name'],
+        'product': body[0].name,
         'stock': body[0].stock
     }}
 
     collection.update_one(myquery, new_values)
-    return 'do some magic!'
+    return 'OK'
 
 
 def search_stock(search_string=None, limit=None):  # noqa: E501
