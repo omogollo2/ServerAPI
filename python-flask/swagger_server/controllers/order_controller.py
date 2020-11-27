@@ -35,7 +35,7 @@ def get_order(order_id):  # noqa: E501
     return 'do some magic!'
 
 
-def post_order(body=None):  # noqa: E501
+def post_order(body):  # noqa: E501
     """crea un nuevo pedido
 
      # noqa: E501
@@ -58,4 +58,4 @@ def post_order(body=None):  # noqa: E501
             'client': body.client
         }
         collection.insert_one(order_data)
-    return 'do some magic!'
+    return 'OK'
