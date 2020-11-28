@@ -11,7 +11,7 @@ def main():
     app.app.json_encoder = encoder.JSONEncoder
     app.add_api('swagger.yaml', arguments={'title': 'Server API'}, pythonic_params=True)
     port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    app.run(host='localhost', port=port)
 
 if __name__ == '__main__':
     main()

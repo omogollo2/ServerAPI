@@ -54,18 +54,18 @@ def post_order(body):  # noqa: E501
     """
 
     if connexion.request.is_json:
-        body = Order.from_dict(connexion.request.get_json())  # noqa: E501
+        # body = Order.from_dict(connexion.request.get_json())  # noqa: E501
         collection = db.order
         order_data = {
-            'id': body.id,
-            'orderDate': str(body.order_date),
-            'shipDate': str(body.ship_date),
-            'item_id': body.items[0].id,
-            'item_name': body.items[0].name,
-            'item_price': body.items[0].price,
-            'totalPrice': body.total_price,
-            'shipAddress': body.ship_address,
-            'client': body.client.name
+            'id': body['id'],
+            'orderDate': str(body['orderDate']),
+            'shipDate': str(body['shipDate']),
+            'item_id': body['items'][0]['id'],
+            'item_name': body['items'][0]['name'],
+            'item_price': body['items'][0]['price'],
+            'totalPrice': body['totalPrice'],
+            'shipAddress': body['shipAddress'],
+            'client': body['client']['name']
         }
 
         collection.insert_one(order_data)
