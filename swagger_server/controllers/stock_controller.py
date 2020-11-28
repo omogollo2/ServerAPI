@@ -51,7 +51,7 @@ def search_stock(search_string=None, limit=None):  # noqa: E501
     collection = db.stock
     stock = list()
     if search_string is None:
-        # Obtener  el stock de la tienda
+        # Obtener el stock de la tienda
 
         for i in collection.find():
             stock.append(StockProduct(Product(i['product']['id'], i['product']['name'], i['product']['price']), i['stock']))
