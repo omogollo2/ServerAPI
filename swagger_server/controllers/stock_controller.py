@@ -22,18 +22,16 @@ def put_stock(product_id, body=None):  # noqa: E501
 
     :rtype: None
     """
-
     if connexion.request.is_json:
-        body = StockProduct.from_dict(connexion.request.get_json())  # noqa: E501
+        # body = StockProduct.from_dict(connexion.request.get_json())  # noqa: E501
 
-    collection = db.stock
-    myquery = {"product": product_id}
-    new_values = {"$set": {
-        'product': body.product.name,
-        'stock': body.stock
-    }}
+        collection = db.stock
+        myquery = {"product.id": product_id}
+        new_values = {"$set": {
+            'stock': body['stock']
+        }}
 
-    collection.update_one(myquery, new_values)
+        collection.update_one(myquery, new_values)
 
     return 'OK'
 
